@@ -65,23 +65,23 @@ switch_argument=$1
 # Utiliser une structure case pour choisir le programme en fonction du switch
 case $switch_argument in
     "-d1")
-        echo "Exécution du programme pour -d1 avec l'argument : $2"
+        echo "Exécution du programme pour -d1"
         ./d1.sh "$2"
         ;;
     "-d2")
-        echo "Exécution du programme pour -d2 avec l'argument : $2"
+        echo "Exécution du programme pour -d2"
         ./d2.sh "$2"
         ;;
     "-l")
-        echo "Exécution du programme pour -l avec l'argument : $2"
+        echo "Exécution du programme pour -l"
         ./l.sh "$2"
         ;;
     "-t")
-        echo "Exécution du programme pour -t avec l'argument : $2"
+        echo "Exécution du programme pour -t"
         ./t.sh "$2"
         ;;
     "-s")
-        echo "Exécution du programme pour -s avec l'argument : $2"
+        echo "Exécution du programme pour -s"
         ./s.sh "$2"
         ;;
     *)
