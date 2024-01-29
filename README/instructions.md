@@ -6,7 +6,7 @@ chmod +x l.sh
 chmod +x t.sh
 chmod +x s.sh
 
-Utilisation de la commande : $0 chemin_fichier_CSV [-d1 | -d2 | -l | -t | -s]
+Utilisation de la commande : ./prog-principal.sh $0 CHEMIN_DATA.CSV [-d1 | -d2 | -l | -t | -s]
 Options :
 -d1: Conducteurs avec le plus de trajets
 -d2: Conducteurs et la plus grande distance
