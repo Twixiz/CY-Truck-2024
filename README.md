@@ -1,9 +1,8 @@
 # CY-Truck-2024
-Projet CY-Truck, info 3, 2024. Participant : Axel, Ari, Marvyn
+Projet CY-Truck, info 3, 2024. Participants : Axel BOUSSIER, Ari BUET, Marvyn MACABRE
 
-travail effectué par chacun des membres du groupe 
+Voici, ci-dessous le descriptif détaillé des différents travaux des membres du groupe.
 
 Axel : option -d1, option -d2, option -l
 Ari : option -s
-Marvyn : option -t, mise en lien sur github, programme principale
-
+Marvyn : option -t, mise en lien sur github, programme principal
