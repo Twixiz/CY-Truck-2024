@@ -51,6 +51,11 @@ if [ ! -d "$IMAGES_FOLDER" ]; then
   mkdir "$IMAGES_FOLDER"
 fi
 
+# Exemple : Vérification de la présence du dossier data
+if [ ! -d "$DATA_FOLDER" ]; then
+  mkdir "$DATA_FOLDER"
+fi
+
 # Exemple : Copie du fichier CSV dans le dossier data
 cp "$CSV_FILE" "$DATA_FOLDER/"
 
