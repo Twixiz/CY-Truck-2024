@@ -59,5 +59,35 @@ fi
 # Exemple : Copie du fichier CSV dans le dossier data
 cp "$CSV_FILE" "$DATA_FOLDER/"
 
-# Exemple : Appel du programme C avec l'option -d1
-"$PROGC_FOLDER/mon_programme_C" -d1 "$DATA_FOLDER/$CSV_FILE" "$TEMP_FOLDER/traitements_d1.txt"
+# Récupérer le premier argument (switch)
+switch_argument=$1
+
+# Utiliser une structure case pour choisir le programme en fonction du switch
+case $switch_argument in
+    "-d1")
+        echo "Exécution du programme pour -d1 avec l'argument : $2"
+        ./d1.sh "$2"
+        ;;
+    "-d2")
+        echo "Exécution du programme pour -d2 avec l'argument : $2"
+        ./d2.sh "$2"
+        ;;
+    "-l")
+        echo "Exécution du programme pour -l avec l'argument : $2"
+        ./l.sh "$2"
+        ;;
+    "-t")
+        echo "Exécution du programme pour -t avec l'argument : $2"
+        ./t.sh "$2"
+        ;;
+    "-s")
+        echo "Exécution du programme pour -s avec l'argument : $2"
+        ./s.sh "$2"
+        ;;
+    *)
+        echo "Argument inconnu: $switch_argument"
+        exit 1
+        ;;
+esac
+
+exit 0
