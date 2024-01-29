@@ -12,7 +12,7 @@ DEMO_FOLDER="demo"
 
 # Fonction pour afficher l'aide
 function afficher_aide {
-  echo "Usage: $0 chemin_fichier_CSV [-d1 | -d2 | -l | -t | -s]"
+  echo "Utilisation de la commande : $0 chemin_fichier_CSV [-d1 | -d2 | -l | -t | -s]"
   echo "Options:"
   echo "  -d1: Conducteurs avec le plus de trajets"
   echo "  -d2: Conducteurs et la plus grande distance"
