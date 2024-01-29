@@ -36,14 +36,10 @@ if [ ! -f "$CSV_FILE" ]; then
   exit 1
 fi
 
-# ... (Ajoutez ici la logique pour traiter les autres arguments et appeler le programme C)
-
 # Exemple : Affichage de l'aide si l'option est -h
 if [ "$2" == "-h" ]; then
   afficher_aide
 fi
-
-# ... (Ajoutez ici la logique pour le traitement des autres options)
 
 # Exemple : Vérification de la présence du dossier temp
 if [ ! -d "$TEMP_FOLDER" ]; then
@@ -55,15 +51,8 @@ if [ ! -d "$IMAGES_FOLDER" ]; then
   mkdir "$IMAGES_FOLDER"
 fi
 
-# ... (Ajoutez ici la logique pour le traitement des autres dossiers)
-
 # Exemple : Copie du fichier CSV dans le dossier data
 cp "$CSV_FILE" "$DATA_FOLDER/"
 
-# ... (Ajoutez ici la logique pour la compilation du programme C)
-
 # Exemple : Appel du programme C avec l'option -d1
 "$PROGC_FOLDER/mon_programme_C" -d1 "$DATA_FOLDER/$CSV_FILE" "$TEMP_FOLDER/traitements_d1.txt"
-
-# ... (Ajoutez ici la logique pour la génération du graphique avec gnuplot)
-
