@@ -1,6 +1,3 @@
-# /!\ Attention, ce programme n'est pas du tout correct, il sert juste de maquette pour rédiger certtaines fonctions du programme principal
-
-
 #!/bin/bash
 
 # Définition des chemins
