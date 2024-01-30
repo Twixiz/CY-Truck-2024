@@ -60,7 +60,7 @@ fi
 cp "$CSV_FILE" "$DATA_FOLDER/"
 
 # Récupérer le premier argument (switch)
-switch_argument=$1
+switch_argument=$2
 
 # Utiliser une structure case pour choisir le programme en fonction du switch
 case $switch_argument in
