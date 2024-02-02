@@ -38,6 +38,8 @@ if [ "$2" == "-h" ]; then
   afficher_aide
 fi
 
+[ -d "$TEMP_FOLDER"] && rm -r "$TEMP_FOLDER"/*
+
 # Exemple : Vérification de la présence du dossier temp
 if [ ! -d "$TEMP_FOLDER" ]; then
   mkdir "$TEMP_FOLDER"
