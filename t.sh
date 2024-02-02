@@ -1,23 +1,43 @@
 #!/bin/bash
 
-./trips_program > output.txt
+# Compile and execute the program to sort the data
+gcc -o programC progc/t.c && ./programC
 
-# Générer le fichier de données pour le graphique
-awk '{print $1, $3, $5}' output.txt > data.txt
+# Verify if GNUplot is installed
+if ! command -v gnuplot &> /dev/null; then
+    echo "GNUplot is not is not installed, please installe it and retry."
+    exit 1
+fi
 
-# Générer le script gnuplot
-echo 'set terminal png' > script.gp
-echo 'set output "trips_histogram.png"' >> script.gp
-echo 'set boxwidth 0.5' >> script.gp
-echo 'set style fill solid' >> script.gp
-echo 'set ytics 1' >> script.gp
-echo 'set xlabel "Towns"' >> script.gp
-echo 'set ylabel "Number of Trips"' >> script.gp
-echo 'set title "Top 10 Towns with the Most Trips"' >> script.gp
-echo 'plot "data.txt" using 2:xtic(1) title "Total Trips" with boxes, "" using 3 title "Depart Trips" with boxes' >> script.gp
+# Name of the CSV file 
+file_csv="tempT.csv"
 
-# Exécuter le script gnuplot
-gnuplot script.gp
+# Verify if the CSV file exist
+if [ ! -f "$file_csv" ]; then
+    echo "the CSV '$file_csv' do not exist."
+    exit 1
+fi
 
-# Nettoyer les fichiers temporaires
-rm output.txt data.txt script.gp
+# Create a temporary data file with the appropriate format for GNUplot
+awk -F';' '{print $1, $2, "Depart", $3; print $1, $2, "Traverse", $4}' "$file_csv" > data_cities_plot.txt
+
+
+# Create a temporary GNUplot script
+echo "set terminal pngcairo enhanced font 'arial,10' size 800, 600" > script.gnu
+echo "set output 'graphique_villes.png'" >> script.gnu
+echo "set boxwidth 0.4" >> script.gnu
+echo "set style fill solid" >> script.gnu
+echo "set xlabel 'Villes'" >> script.gnu
+echo "set ylabel 'Nombre de fois'" >> script.gnu
+echo "set title 'Graphique des Villes : Trajets et Départs'" >> script.gnu
+echo "set xtics rotate" >> script.gnu
+echo "plot 'donnees_villes_plot.txt' using 2:xtic(1) title 'Départ', '' using 4 title 'Traverse'" >> script.gnu
+
+# Run the GNUplot script
+gnuplot script.gnu
+
+# Delete temporary files
+rm data_villes_plot.txt script.gnu
+
+# Open the generated image
+xdg-open graphique_villes.png
